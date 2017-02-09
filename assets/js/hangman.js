@@ -1,16 +1,16 @@
-var word = ["RickAndMorty", "TheWalkingDead", "Batman", "Superman", "Flash", "HarryPotter", "Robocop", "StarWars", "StarTrek", "HarleyQuinn", "Deadpool", "BackToTheFuture"];
+var word = ["Rick And Morty", "The Walking Dead", "Batman", "Superman", "Flash", "Harry Potter", "Robocop", "Star Wars", "Star Trek", "Harley Quinn", "Deadpool", "Back To The Future"];
 var wins = 0;
-var lives = 15;
+var lives;
 var guessed = "";
 var displayWord = "";
 var randWord;
 var randNum;
 
 function loadFunction() {
-	randNum = Math.floor(Math.random()*10);
+	randNum = Math.floor(Math.random()*12);
 	randWord = word[randNum];
 	displayWord = "";
-	lives = 15;
+	lives = 9;
 	guessed= "";
 	wordHider(randWord);
 	document.getElementById('timesWon').innerHTML = wins.toString();
@@ -21,7 +21,11 @@ function loadFunction() {
 
 function wordHider(x) {
 	for (var i = 0; i < randWord.length; i++) {
-		displayWord += "-";
+		if (randWord.toLowerCase().charAt(i) === ' ') {
+			displayWord += " ";
+		} else {
+			displayWord += "-";
+		}
 	}
 };
 
@@ -33,9 +37,9 @@ document.onkeyup=function() {
 			replace();
 		} else {
 			guessed += event.key + " ";
-			document.getElementById('userGuesses').innerHTML = guessed;
+			document.getElementById('userGuesses').innerHTML = lives;
 			lives -= 1;
-			document.getElementById('userGuessed').innerHTML = lives;
+			document.getElementById('userGuessed').innerHTML = guessed;
 		}
 	} else {
 		alert("Sorry, you lost. The word was: " + randWord);
