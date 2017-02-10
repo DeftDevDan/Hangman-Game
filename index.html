@@ -2,18 +2,27 @@
 <html>
 <head>
 	<title>Hangman-Game</title>
-	<link rel="stylehseet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="assets/js/hangman.js"></script>
 </head>
 <body onload="loadFunction()">
-	<h1 id="start">Press any key to get started</h1>
-	<h1>Good luck!</h1>
-	<h2>Won</h2>
-	<h3 id="timesWon"></h3>
-	<h1 id="randomWord" style="letter-space: 1em"></h1>
-	<h2>Lives</h3>
-	<h3 id="userGuesses"></h3>
-	<h2>Letters Guessed</h2>
-	<h3 id="userGuessed"></h3>
+	<div id = "top">
+		<div id="superman"><img src="assets/images/superman.png"></div>
+		<div id="RickAndMorty"><img src="assets/images/RickAndMorty.png"></div>
+		<div id="batman"><img src="assets/images/batman.png"></div>
+	</div>
+	<div id = "game">
+		<h2 class="won">Won:</h2>
+		<h2 class="won" id="timesWon"></h2>
+		<h2 class="lives" id="userGuesses"></h2>
+		<h2 class="lives">Lives:</h2>
+		<img id="lootcrate" src="assets/images/lootcrate.png">
+		<h1 id="randomWord" style="letter-space: 1em"></h1>
+
+		<h2>Letters Guessed</h2>
+		<div id="guessedBox">
+			<h3 id="userGuessed"></h3>
+		</div>
+	</div>
 </body>
 </html>

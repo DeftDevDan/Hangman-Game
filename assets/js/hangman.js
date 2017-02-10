@@ -1,4 +1,4 @@
-var word = ["Rick And Morty", "The Walking Dead", "Batman", "Superman", "Flash", "Harry Potter", "Robocop", "Star Wars", "Star Trek", "Harley Quinn", "Deadpool", "Back To The Future"];
+var word = ["Rick And Morty", "The Walking Dead", "Batman", "Superman", "Flash", "Harry Potter", "Robocop", "Star Wars", "Star Trek", "Harley Quinn", "Deadpool", "Back To The Future", "Doctor Who"];
 var wins = 0;
 var lives;
 var guessed = "";
@@ -7,7 +7,7 @@ var randWord;
 var randNum;
 
 function loadFunction() {
-	randNum = Math.floor(Math.random()*12);
+	randNum = Math.floor(Math.random()*13);
 	randWord = word[randNum];
 	displayWord = "";
 	lives = 9;
@@ -31,18 +31,21 @@ function wordHider(x) {
 
 document.onkeyup=function() {
 	if (lives > 0) {
-		if (guessed.toLowerCase().indexOf(event.key) > -1) {
+		if ((event.keyCode > 64 && event.keyCode) < 91 || (event.keyCode > 96 && event.keyCode < 123)) {
+			if (guessed.toLowerCase().indexOf(event.key) > -1) {
 			
-		} else if (randWord.toLowerCase().indexOf(event.key) > -1) {
+			} else if (randWord.toLowerCase().indexOf(event.key) > -1) {
 			replace();
-		} else {
+			} else {
 			guessed += event.key + " ";
 			document.getElementById('userGuesses').innerHTML = lives;
 			lives -= 1;
 			document.getElementById('userGuessed').innerHTML = guessed;
+			}
 		}
 	} else {
 		alert("Sorry, you lost. The word was: " + randWord);
+		wins = 0;
 		loadFunction();
 	}
 };
