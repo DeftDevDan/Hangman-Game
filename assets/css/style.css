@@ -1,0 +1,49 @@
+body {
+	background-color: #000;
+}
+
+#game {
+	background-color: #fff;
+	text-align: center;
+	width: 30%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 19%;
+	padding-bottom: 20px;
+}
+
+#top {
+	position: fixed;
+	width: 100%;
+	top:0;
+}
+
+#top img {
+	width: 33.3%;
+	float:left;
+}
+
+#lootcrate {
+	width:50%;
+}
+
+#guessedBox {
+	width:80%;
+	height: 50px;
+	background-color:#ccc;
+	color:#fff;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	line-height:50px;
+}
+
+.won {
+	float:left;
+	padding-left: 5px;
+}
+
+.lives {
+	float:right;
+	padding-right:5px;
+}
