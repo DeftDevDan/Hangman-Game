@@ -33,7 +33,6 @@ function wordHider(x) {
 };
 
 document.onkeyup=function() {
-	$("#lootcrate").attr("src", 'assets/images/box0.png');
 	if (lives > 0) {
 		if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123)) {
 			if (guessed.toLowerCase().indexOf(event.key) > -1) {
