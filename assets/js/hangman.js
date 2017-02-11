@@ -46,6 +46,7 @@ document.onkeyup=function() {
 	} else {
 		alert("Sorry, you lost. The word was: " + randWord);
 		wins = 0;
+		win();
 		loadFunction();
 	}
 };
@@ -63,4 +64,11 @@ function replace() {
 		alert("Congrats! You won! The word was: " + randWord);
 		loadFunction();
 	}
+}
+
+function win() {
+	var img = document.createElement("IMG");
+	img.src=["../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/StarWars.png", "../images/SupermanBox.png", "../images/FlashBox.png", "../images/Placehold.png", "../images/Placehold.png", "../images/StarWars.png", "../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/DoctorWho.png"];
+	var oldImg = document.getElement('lootcrate');
+	document.getElementById('game').replaceChild(img[randNum], oldImg);
 }
