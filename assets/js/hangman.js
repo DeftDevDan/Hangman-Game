@@ -67,7 +67,7 @@ function replace() {
 
 function win() {
 	document.getElementById('winText').innerHTML = "Congratulations! You won!";
-	$("#winPic").attr("src", 'assets/images/box'+(randNum+1)+'.png');
+	$("#winPic").attr("src", 'assets/images/Box'+(randNum+1)+'.png');
 	$("#game").hide();
 	$("#winner").show();
 	$("#top").hide();
