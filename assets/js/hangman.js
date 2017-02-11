@@ -7,6 +7,9 @@ var randWord;
 var randNum;
 
 function loadFunction() {
+	$("#winner").hide();
+	$("#game").show();
+	$("#top").show();
 	randNum = Math.floor(Math.random()*13);
 	randWord = word[randNum];
 	displayWord = "";
@@ -30,8 +33,9 @@ function wordHider(x) {
 };
 
 document.onkeyup=function() {
+	$("#lootcrate").attr("src", 'assets/images/box0.png');
 	if (lives > 0) {
-		if ((event.keyCode > 64 && event.keyCode) < 91 || (event.keyCode > 96 && event.keyCode < 123)) {
+		if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123)) {
 			if (guessed.toLowerCase().indexOf(event.key) > -1) {
 			
 			} else if (randWord.toLowerCase().indexOf(event.key) > -1) {
@@ -44,10 +48,7 @@ document.onkeyup=function() {
 			}
 		}
 	} else {
-		alert("Sorry, you lost. The word was: " + randWord);
-		wins = 0;
-		win();
-		loadFunction();
+		lose();
 	}
 };
 
@@ -61,14 +62,23 @@ function replace() {
 	if (randWord.toLowerCase() == displayWord.toLowerCase()) {
 		wins += 1;
 		document.getElementById('timesWon').innerHTML = wins.toString();
-		alert("Congrats! You won! The word was: " + randWord);
-		loadFunction();
+		win();
 	}
 }
 
 function win() {
-	var img = document.createElement("IMG");
-	img.src=["../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/StarWars.png", "../images/SupermanBox.png", "../images/FlashBox.png", "../images/Placehold.png", "../images/Placehold.png", "../images/StarWars.png", "../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/Placehold.png", "../images/DoctorWho.png"];
-	var oldImg = document.getElement('lootcrate');
-	document.getElementById('game').replaceChild(img[randNum], oldImg);
+	document.getElementById('winText').innerHTML = "Congratulations! You won!";
+	$("#winPic").attr("src", 'assets/images/box'+(randNum+1)+'.png');
+	$("#game").hide();
+	$("#winner").show();
+	$("#top").hide();
+}
+
+function lose() {
+	wins=0;
+	document.getElementById('winText').innerHTML = "LOSER!";
+	$("#winPic").attr("src", 'assets/images/boxLose.png');
+	$("#game").hide();
+	$("#winner").show();
+	$("#top").hide();
 }

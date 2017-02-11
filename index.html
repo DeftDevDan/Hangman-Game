@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Hangman-Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="assets/js/hangman.js"></script>
 </head>
@@ -16,13 +18,18 @@
 		<h2 class="won" id="timesWon"></h2>
 		<h2 class="lives" id="userGuesses"></h2>
 		<h2 class="lives">Lives:</h2>
-		<img id="lootcrate" src="assets/images/Closed Box.png">
+		<img id="lootcrate" src="assets/images/Box0.png">
 		<h1 id="randomWord" style="letter-space: 1em"></h1>
 
 		<h2>Letters Guessed</h2>
 		<div id="guessedBox">
 			<h3 id="userGuessed"></h3>
 		</div>
+	</div>
+	<div id = "winner">
+		<h1 id = "winText" style="color:red">Congratulations! You won!</h1>
+		<img id="winPic">
+		<button onClick="loadFunction()">Play Again</button>
 	</div>
 </body>
 </html>
